@@ -44,7 +44,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: test
-    projects: '**/*Tests/*.csproj'
+    projects: '**/*Tests/unit-tests/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
 # do this after your tests have run
