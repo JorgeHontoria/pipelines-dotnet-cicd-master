@@ -88,6 +88,6 @@ steps:
     azureSubscription: 'sc-webappdemo'
     appType: 'webApp'
     WebAppName: 'webappdemo'
-    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+    package: '$(Build.ArtifactStagingDirectory)/**/app.zip'
     enableCustomDeployment: true
     DeploymentType: 'webDeploy'
