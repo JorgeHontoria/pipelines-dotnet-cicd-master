@@ -78,7 +78,7 @@ steps:
     ConnectionType: 'AzureRM'
     azureSubscription: 'sc-webappdemo'
     appType: 'webApp'
-    WebAppName: '<app-name>'
+    WebAppName: 'webappdemo'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
     enableCustomDeployment: true
     DeploymentType: 'webDeploy'
