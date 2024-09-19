@@ -80,6 +80,9 @@ steps:
     ArtifactName: 'AzureTestProject'
     publishLocation: 'Container'
 
+- bash: ls $(Build.ArtifactStagingDirectory)
+  displayName: "List the content of staging directory"
+
 - task: AzureRmWebAppDeployment@4
   name: 'AzureRmWebAppDeployment'
   displayName: 'AzureRm WebApp Deployment'
