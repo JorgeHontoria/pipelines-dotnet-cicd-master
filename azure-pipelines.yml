@@ -80,9 +80,6 @@ steps:
     ArtifactName: 'AzureTestProject'
     publishLocation: 'Container'
 
-- bash: ls $(Build.ArtifactStagingDirectory)
-  displayName: "List the content of staging directory"
-
 - task: AzureRmWebAppDeployment@4
   name: 'AzureRmWebAppDeployment'
   displayName: 'AzureRm WebApp Deployment'
@@ -91,6 +88,6 @@ steps:
     azureSubscription: 'sc-webappdemo'
     appType: 'webApp'
     WebAppName: 'webappdemo'
-    packageForLinux: '$(Build.ArtifactStagingDirectory)/*.zip'
+    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
     enableCustomDeployment: true
     DeploymentType: 'webDeploy'
