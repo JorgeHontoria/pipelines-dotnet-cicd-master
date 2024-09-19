@@ -87,7 +87,7 @@ steps:
     ConnectionType: 'AzureRM'
     azureSubscription: 'sc-webappdemo'
     appType: 'webApp'
-    WebAppName: 'webappdemo'
+    WebAppName: 'webappdemots'
     package: '$(Build.ArtifactStagingDirectory)/**/app.zip'
     enableCustomDeployment: true
     DeploymentType: 'webDeploy'
