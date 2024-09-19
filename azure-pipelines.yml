@@ -49,6 +49,8 @@ steps:
     arguments: '--configuration $(BuildConfiguration)'
 
 - task: DotNetCoreCLI@2
+  name: 'CodeCoverage'
+  displayName: 'Code Coverage'
   inputs:
     command: test
     projects: '**/*Tests/*.csproj'
@@ -74,6 +76,8 @@ steps:
     publishLocation: 'Container'
 
 - task: AzureRmWebAppDeployment@4
+  name: 'AzureRmWebAppDeployment'
+  displayName: 'AzureRm WebApp Deployment'
   inputs:
     ConnectionType: 'AzureRM'
     azureSubscription: 'sc-webappdemo'
