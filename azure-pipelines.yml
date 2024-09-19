@@ -75,6 +75,11 @@ steps:
     ArtifactName: 'AzureTestProject'
     publishLocation: 'Container'
 
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: $(Build.SourcesDirectory)
+    targetFolder: $(Build.ArtifactStagingDirectory)
+
 - task: AzureRmWebAppDeployment@4
   name: 'AzureRmWebAppDeployment'
   displayName: 'AzureRm WebApp Deployment'
