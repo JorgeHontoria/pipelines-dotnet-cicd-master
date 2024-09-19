@@ -60,10 +60,10 @@ steps:
   displayName: 'Publish'
   inputs:
     command: 'publish'
-    publishWebProjects: false
+    publishWebProjects: true
     projects: '$(solution)'
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: false
+    zipAfterPublish: true
 
 - task: PublishBuildArtifacts@1
   name: 'PublishBuildArtifacts'
@@ -72,3 +72,13 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'AzureTestProject'
     publishLocation: 'Container'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'sc-webappdemo'
+    appType: 'webApp'
+    WebAppName: '<app-name>'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    enableCustomDeployment: true
+    DeploymentType: 'webDeploy'
